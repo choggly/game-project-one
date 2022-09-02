@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/ScenerySprites/Bin2.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 191.804, 120 )
+
+[node name="Bins" type="StaticBody2D"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
+scale = Vector2( 0.025, 0.025 )
+shape = SubResource( 2 )
+
+[node name="BinVariant2" type="Sprite" parent="."]
+scale = Vector2( 0.025, 0.025 )
+texture = ExtResource( 1 )

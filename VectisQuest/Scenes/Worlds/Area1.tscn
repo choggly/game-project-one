@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/Scenery/BinVariant1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Audio/Music/StreetsOfVectis.wav" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/Objects/Scenery/BinVariant2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/ScenerySprites/pAVEMENTS.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/ScenerySprites/24 Vectis.png" type="Texture" id=6]
+
+[sub_resource type="TileSet" id=1]
+0/name = "pAVEMENTS.png 0"
+0/texture = ExtResource( 5 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 576, 64 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 511, Vector2( 1, 0 ), 504, Vector2( 2, 0 ), 63, Vector2( 3, 0 ), 438, Vector2( 4, 0 ), 219, Vector2( 5, 0 ), 216, Vector2( 6, 0 ), 432, Vector2( 7, 0 ), 54, Vector2( 8, 0 ), 27 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 64, 64 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="Area1" type="YSort"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 90 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area1Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 0.1
+autoplay = true
+
+[node name="Bin1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 264, 66 )
+rotation = 0.0261799
+
+[node name="Bin2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 258, 70 )
+rotation = 0.0349066
+
+[node name="Bin3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 269, 71 )
+rotation = -0.0174533
+
+[node name="Bin4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 265, 73 )
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 0.25, 0.25 )
+tile_set = SubResource( 1 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 6, 262145, 0, 1, 262146, 0, 1, 262147, 0, 1, 262148, 0, 1, 262149, 0, 1, 262150, 0, 1, 262151, 0, 1, 262152, 0, 1, 262153, 0, 1, 262154, 0, 1, 262155, 0, 1, 262156, 0, 1, 262157, 0, 1, 262158, 0, 1, 262159, 0, 1, 262160, 0, 1, 262161, 0, 1, 262162, 0, 1, 262163, 0, 5, 327680, 0, 3, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 4, 393216, 0, 7, 393217, 0, 2, 393218, 0, 2, 393219, 0, 2, 393220, 0, 2, 393221, 0, 2, 393222, 0, 2, 393223, 0, 2, 393224, 0, 2, 393225, 0, 2, 393226, 0, 2, 393227, 0, 2, 393228, 0, 2, 393229, 0, 2, 393230, 0, 2, 393231, 0, 2, 393232, 0, 2, 393233, 0, 2, 393234, 0, 2, 393235, 0, 8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="24" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 149.456, -17.4922 )
+scale = Vector2( 0.922646, 1.27344 )
+texture = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 149.456, -17.4922 )
+scale = Vector2( 0.922646, 1.27344 )
+polygon = PoolVector2Array( -64.143, 63.7144, -63.8928, 12.5558, 63.8535, 12.6337, 63.7459, 63.898, 42.8598, 63.9939, 42.8598, 60.8528, 42.8598, 56.9264, 39.6083, 56.9264, 39.6083, 54.5706, 13.5961, 54.5706, 13.5961, 56.9264, 9.26076, 56.9264, 9.26076, 63.9939 )
