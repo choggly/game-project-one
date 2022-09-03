@@ -28,10 +28,6 @@ margin_right = 10046.0
 margin_bottom = 9923.0
 color = Color( 1, 0.945098, 0.721569, 1 )
 
-[node name="VectisMainMenu" type="Sprite" parent="."]
-light_mask = 2
-position = Vector2( 960, 540 )
-
 [node name="Button" type="Button" parent="."]
 margin_left = 936.0
 margin_top = 601.0

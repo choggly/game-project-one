@@ -8,22 +8,25 @@ const MAX_SPEED = 50
 var velocity = Vector2.ZERO
 
 onready var animationPlayer = $AnimationPlayer
+onready var animationTree = $AnimationTree
+onready var animationState = animationTree.get("parameters/playback")
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	
 	#Makes sure diagonal movement is not faster than normal X,Y axis movement.
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
-		animationPlayer.play("RunDown")
+		animationTree.set("parameters/Idle/blend_position", input_vector)
+		animationTree.set("parameters/Run/blend_position", input_vector)
+		animationState.travel("Run")
 		# If our vector doesnt equal 0, add input_vector every frame and multiply by MAX SPEED AND acceleration, followed by 
 		# multiply by delta. Delta is required for our character to be relative to our frame rate.
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
-		animationPlayer.play("Idle")
+		animationState.travel("Idle")
 		#If our character is not moving, we are adding friction(weight) to our character.
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		
